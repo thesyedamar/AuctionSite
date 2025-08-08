@@ -1,0 +1,209 @@
+{% extends 'auctions/base.html' %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block content %}
+{% load i18n %}
+<style>
+  @media (max-width: 991px) {
+    html, body {
+      overflow-x: hidden !important;
+    }
+    .vendor-dashboard-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+      box-sizing: border-box;
+    }
+    .vendor-dashboard-container .row.g-4 {
+      flex-direction: column;
+    }
+    .vendor-dashboard-container .col-lg-3,
+    .vendor-dashboard-container .col-lg-9 {
+      max-width: 100%;
+      flex: 0 0 100%;
+      margin-bottom: 1.5rem;
+    }
+    .row.g-0.mb-4.d-flex.flex-nowrap {
+      flex-wrap: wrap !important;
+      gap: 1rem 0;
+    }
+    .row.g-0.mb-4.d-flex.flex-nowrap > div {
+      min-width: 100%;
+      margin-bottom: 1rem;
+    }
+    .glass-card {
+      border-radius: 16px !important;
+    }
+    .product-listings-card {
+      overflow-x: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    .product-listings-card table {
+      min-width: 480px !important;
+      width: max-content !important;
+      display: table;
+      overflow-x: auto !important;
+    }
+    .product-listings-card table thead,
+    .product-listings-card table tbody,
+    .product-listings-card table tr {
+      display: table-row;
+      width: auto;
+      table-layout: auto;
+    }
+    .product-listings-card table td,
+    .product-listings-card table th {
+      word-break: break-word;
+      font-size: 0.98rem;
+    }
+    .product-listings-card table th,
+    .product-listings-card table td {
+      padding: 0.7rem 1.2rem !important;
+      min-width: 110px;
+      text-align: center;
+    }
+    .product-listings-card table th {
+      font-weight: 600;
+      font-size: 1.02rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .vendor-dashboard-container {
+      padding-left: 0.2rem !important;
+      padding-right: 0.2rem !important;
+    }
+    .glass-card {
+      padding: 0.7rem !important;
+    }
+    .product-listings-card table td,
+    .product-listings-card table th {
+      font-size: 0.92rem;
+      padding: 0.3rem 0.1rem;
+    }
+  }
+</style>
+<div class="container py-4 vendor-dashboard-container">
+  <h2 class="fw-bold text-center mb-4">{% trans "Vendor Dashboard" %}</h2>
+  <div class="row g-4">
+    <div class="col-lg-3 mb-4">
+      <div class="p-4 h-100" style="background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%); color: #fff; border-radius: 20px;">
+        <div class="text-center mb-4">
+            {% if user.profile.store_logo %}
+                <img src="{{ user.profile.store_logo.url }}" class="rounded-circle mb-2" width="80" alt="{% trans 'Store Logo' %}">
+            {% else %}
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle mb-2" width="80" alt="{% trans 'Profile' %}">
+            {% endif %}
+            <div class="fw-bold mt-2">
+                {% if user.profile.store_name %}
+                    {{ user.profile.store_name }}
+                {% else %}
+                    {{ user.username }}
+                {% endif %}
+            </div>
+            <div class="text-light small">
+                {% if user.profile.store_email %}
+                    {{ user.profile.store_email }}
+                {% else %}
+                    {{ user.email }}
+                {% endif %}
+            </div>
+            <a href="{% url 'edit_store' %}" class="btn btn-outline-light btn-sm mt-2">{% trans "Edit Store" %}</a>
+        </div>
+        <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-transparent border-0">{% trans "Home" %}</a>
+        <a href="{% url 'products' %}" class="list-group-item list-group-item-action bg-transparent border-0">{% trans "Explore" %}</a>
+        <a href="{% url 'list_product' %}" class="list-group-item list-group-item-action bg-transparent border-0">{% trans "Create" %}</a>
+        <a href="{% url 'my_bids' %}" class="list-group-item list-group-item-action bg-transparent border-0">{% trans "My Bids" %}</a>
+        <a href="{% url 'vendor_payments' %}" class="list-group-item list-group-item-action bg-transparent border-0">{% trans "My Payments" %}</a>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <span></span>
+        <a href="{% url 'list_product' %}" class="menu-btn primary">+ {% trans "Add Product" %}</a>
+      </div>
+      <div class="d-flex mb-4 justify-content-between align-items-stretch" style="gap: 0.5rem; flex-wrap: nowrap;">
+        <div class="flex-fill" style="min-width:0;">
+          <div class="glass-card p-3 text-center w-100">
+            <div class="text-muted">{% trans "Total Products" %}</div>
+            <div class="h3 fw-bold text-primary">{{ total_products }}</div>
+          </div>
+        </div>
+        <div class="flex-fill" style="min-width:0;">
+          <div class="glass-card p-3 text-center w-100">
+            <div class="text-muted">{% trans "Sold Products" %}</div>
+            <div class="h3 fw-bold text-success">{{ sold_products }}</div>
+          </div>
+        </div>
+        <div class="flex-fill" style="min-width:0;">
+          <div class="glass-card p-3 text-center w-100">
+            <div class="text-muted">{% trans "Running Products" %}</div>
+            <div class="h3 fw-bold text-info">{{ running_products }}</div>
+          </div>
+        </div>
+        <div class="flex-fill" style="min-width:0;">
+          <div class="glass-card p-3 text-center w-100">
+            <div class="text-muted">{% trans "Pending Products" %}</div>
+            <div class="h3 fw-bold text-warning">{{ pending_products }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- Visual gap for separation -->
+      <div style="height: 10px;"></div>
+      <h5 class="fw-bold mb-3">{% trans "Sales & Bids Overview" %}</h5>
+      <div class="d-flex mb-5 sales-bids-section" style="gap: 0.5rem; flex-wrap: nowrap;">
+        <div class="flex-fill" style="min-width:0;">
+          <div class="glass-card p-3 text-center w-100">
+            <div class="text-muted">{% trans "Total Sales" %}</div>
+            <div class="h3 fw-bold text-primary">${{ total_sales }}</div>
+          </div>
+        </div>
+        <div class="flex-fill" style="min-width:0;">
+          <div class="glass-card p-3 text-center w-100">
+            <div class="text-muted">{% trans "Active Bids" %}</div>
+            <div class="h3 fw-bold text-info">{{ active_bids }}</div>
+          </div>
+        </div>
+      </div>
+      <h5 class="fw-bold mb-3">{% trans "Product Listings" %}</h5>
+      <div class="glass-card p-3 mb-4 product-listings-card dashboard-section">
+        <table class="table align-middle mb-0">
+          <thead>
+            <tr>
+              <th>{% trans "Product" %}</th>
+              <th>{% trans "Status" %}</th>
+              <th>{% trans "Bids" %}</th>
+              <th>{% trans "Actions" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+            <tr>
+              <td>{{ product.title }}</td>
+              <td>
+                {% if product.is_active %}
+                  <span class="badge bg-success">{% trans "Active" %}</span>
+                {% else %}
+                  <span class="badge bg-secondary">{% trans "Inactive" %}</span>
+                {% endif %}
+              </td>
+              <td>{{ product.bids.count }}</td>
+              <td>
+                <a href="{% url 'edit_product' product.pk %}" class="link-primary">{% trans "Edit" %}</a> |
+                <a href="{% url 'delete_product_dashboard' product.pk %}" class="link-danger">{% trans "Delete" %}</a>
+              </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">{% trans "No products listed yet." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 

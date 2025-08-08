@@ -1,0 +1,45 @@
+{% load i18n %}
+{% extends 'auctions/base.html' %}
+{% block title %}{% trans "Privacy Policy - Auction Site" %}{% endblock %}
+{% block content %}
+<div class="container py-5" style="max-width: 900px;">
+  <div class="card p-4 shadow-sm" style="background: var(--bg-light); border-radius: 18px; border: 1.5px solid var(--primary);">
+    <h2 class="fw-bold text-primary mb-4">{% trans "Privacy Policy" %}</h2>
+    <p class="text-muted">{% trans "Last updated: June 2024" %}</p>
+    <h4 class="text-accent mt-4 mb-2">{% trans "1. Introduction" %}</h4>
+    <p>{% trans "We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how AuctionSite collects, uses, and safeguards your data." %}</p>
+    <h4 class="text-accent mt-4 mb-2">{% trans "2. Information We Collect" %}</h4>
+    <ul>
+      <li>{% trans "Account information (name, email, password, etc.)" %}</li>
+      <li>{% trans "Product listings, bids, and transaction details" %}</li>
+      <li>{% trans "Usage data (IP address, browser type, device info, etc.)" %}</li>
+      <li>{% trans "Cookies and similar tracking technologies" %}</li>
+    </ul>
+    <h4 class="text-accent mt-4 mb-2">{% trans "3. How We Use Your Information" %}</h4>
+    <ul>
+      <li>{% trans "To provide and improve our services" %}</li>
+      <li>{% trans "To process transactions and send notifications" %}</li>
+      <li>{% trans "To ensure security and prevent fraud" %}</li>
+      <li>{% trans "To comply with legal obligations" %}</li>
+    </ul>
+    <h4 class="text-accent mt-4 mb-2">{% trans "4. Sharing Your Information" %}</h4>
+    <ul>
+      <li>{% trans "We do not sell your personal information." %}</li>
+      <li>{% trans "We may share data with trusted service providers for business operations." %}</li>
+      <li>{% trans "We may disclose information if required by law or to protect our rights." %}</li>
+    </ul>
+    <h4 class="text-accent mt-4 mb-2">{% trans "5. Data Security" %}</h4>
+    <p>{% trans "We use industry-standard security measures to protect your data. However, no method of transmission over the Internet is 100% secure." %}</p>
+    <h4 class="text-accent mt-4 mb-2">{% trans "6. Your Rights" %}</h4>
+    <ul>
+      <li>{% trans "You can access, update, or delete your personal information at any time." %}</li>
+      <li>{% trans "You can opt out of marketing communications." %}</li>
+      <li>{% trans "Contact us for any privacy-related requests." %}</li>
+    </ul>
+    <h4 class="text-accent mt-4 mb-2">{% trans "7. Changes to This Policy" %}</h4>
+    <p>{% trans "We may update this Privacy Policy from time to time. Changes will be posted on this page." %}</p>
+    <h4 class="text-accent mt-4 mb-2">{% trans "8. Contact Us" %}</h4>
+    <p>{% blocktrans %}If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@auctionsite.com">support@auctionsite.com</a>.{% endblocktrans %}</p>
+  </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,155 @@
+{% extends 'auctions/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Need Help? - We're Here for You" %}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="help-hero">
+    <div class="container">
+        <div class="hero-content text-center">
+            <h1 class="hero-title">{% trans "Need Help? – We're Here for You" %}</h1>
+            <p class="hero-subtitle">{% trans "Find answers to common questions or get in touch with our support team. We're committed to providing you with the best auction experience." %}</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="row">
+            <!-- Account FAQ -->
+            <div class="col-lg-6 mb-5">
+                <div class="faq-category">
+                    <h3 class="faq-category-title">
+                        <i class="fas fa-user-circle"></i>
+                        {% trans "Account" %}
+                    </h3>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "How do I create an account?" %}</h4>
+                        <p class="faq-answer">{% trans "Click the 'Register' button in the top navigation. Fill in your details including email, password, and user type (buyer or vendor). Verify your email to activate your account." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "How do I become a vendor?" %}</h4>
+                        <p class="faq-answer">{% trans "After registering, go to 'Become a Vendor' in your dashboard. Complete the vendor application form with your business details and store information. Once approved, you can start listing products." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "Can I change my account type?" %}</h4>
+                        <p class="faq-answer">{% trans "Yes, you can upgrade from buyer to vendor at any time. However, vendor accounts require additional verification and approval process." %}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Bidding FAQ -->
+            <div class="col-lg-6 mb-5">
+                <div class="faq-category">
+                    <h3 class="faq-category-title">
+                        <i class="fas fa-gavel"></i>
+                        {% trans "Bidding" %}
+                    </h3>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "How does bidding work?" %}</h4>
+                        <p class="faq-answer">{% trans "Browse products and place bids on items you're interested in. Each bid must be higher than the current highest bid. You'll be notified if you're outbid, and you can place a new bid to stay in the auction." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "What happens if I win an auction?" %}</h4>
+                        <p class="faq-answer">{% trans "When you win an auction, you'll receive a notification. You can then proceed to payment through our secure payment system. The vendor will ship your item once payment is confirmed." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "Can I retract a bid?" %}</h4>
+                        <p class="faq-answer">{% trans "Bids are generally final. However, you can retract a bid within 1 hour of placing it if you made an error. Contact support immediately if you need to retract a bid." %}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Selling FAQ -->
+            <div class="col-lg-6 mb-5">
+                <div class="faq-category">
+                    <h3 class="faq-category-title">
+                        <i class="fas fa-store"></i>
+                        {% trans "Selling" %}
+                    </h3>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "How do I list a product?" %}</h4>
+                        <p class="faq-answer">{% trans "As a vendor, go to your dashboard and click 'Add Product'. Fill in product details, upload images, set starting price and auction duration. Review and publish your listing." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "What fees are involved in selling?" %}</h4>
+                        <p class="faq-answer">{% trans "We charge a small commission fee on successful sales. The exact percentage depends on your vendor tier. There are no upfront fees to list products." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "How do I manage my store?" %}</h4>
+                        <p class="faq-answer">{% trans "Access your vendor dashboard to manage products, view sales, track payments, and update your store information. You can edit product details, end auctions early, or relist items." %}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Payments FAQ -->
+            <div class="col-lg-6 mb-5">
+                <div class="faq-category">
+                    <h3 class="faq-category-title">
+                        <i class="fas fa-credit-card"></i>
+                        {% trans "Payments" %}
+                    </h3>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "What payment methods do you accept?" %}</h4>
+                        <p class="faq-answer">{% trans "We accept major credit cards, debit cards, and digital wallets. All payments are processed securely through our trusted payment partners." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "When do vendors receive payment?" %}</h4>
+                        <p class="faq-answer">{% trans "Vendors receive payment within 3-5 business days after the buyer confirms receipt of the item. This ensures buyer satisfaction and protects both parties." %}</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">{% trans "Is my payment information secure?" %}</h4>
+                        <p class="faq-answer">{% trans "Yes, we use industry-standard encryption and security measures. We never store your full payment details on our servers. All transactions are processed through secure payment gateways." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Support Section -->
+<section class="contact-support">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title">{% trans "Still Need Help?" %}</h2>
+                <p class="section-subtitle">{% trans "Can't find what you're looking for? Our support team is ready to assist you." %}</p>
+                <div class="support-options">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="support-option">
+                                <div class="support-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4>{% trans "Email Support" %}</h4>
+                                <p>support@auctionplatform.com</p>
+                                <p class="response-time">{% trans "Response within 24 hours" %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="support-option">
+                                <div class="support-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h4>{% trans "Phone Support" %}</h4>
+                                <p>+1 (555) 123-4567</p>
+                                <p class="response-time">{% trans "Mon-Fri, 9AM-6PM EST" %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="support-option">
+                                <div class="support-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h4>{% trans "Contact Form" %}</h4>
+                                <p>{% trans "Send us a detailed message" %}</p>
+                                <a href="{% url 'contact' %}" class="btn btn-primary">{% trans "Contact Us" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

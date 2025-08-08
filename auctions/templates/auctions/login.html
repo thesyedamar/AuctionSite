@@ -1,0 +1,204 @@
+{% extends 'auctions/base.html' %}
+{% load static %}
+{% block title %}Login - Auction Site{% endblock %}
+{% block content %}
+<style>
+  body {
+    background: var(--bg-light);
+    min-height: 100vh;
+  }
+  .login-split-card {
+    max-width: 820px;
+    margin: 60px auto;
+    display: flex;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    overflow: hidden;
+    background: #fff;
+  }
+  .login-left {
+    background: linear-gradient(135deg, #1e62e6 0%, #2a7cf7 100%);
+    color: #fff;
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 32px 48px 40px;
+    position: relative;
+  }
+  .login-left h2 {
+    font-family: 'Poppins', 'Inter', Arial, sans-serif;
+    font-size: 2.1rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .login-left .site-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .login-left .desc {
+    font-size: 1.05rem;
+    opacity: 0.92;
+    margin-bottom: 2.2rem;
+    text-align: left;
+    max-width: 320px;
+  }
+  .login-divider {
+    width: 48px;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0;
+  }
+  .login-right {
+    flex: 1.2;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 40px 48px 32px;
+  }
+  .login-form-title {
+    font-family: 'Poppins', 'Inter', Arial, sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #222;
+    text-align: left;
+    width: 100%;
+  }
+  .login-form label {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.2rem;
+    font-size: 1.05rem;
+  }
+  .login-form input[type="text"],
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #e3e8fd;
+    margin-bottom: 1.2rem;
+    background: #f8fafd;
+    color: #222;
+    font-size: 1.08rem;
+    transition: border 0.2s;
+  }
+  .login-form input[type="text"]:focus,
+  .login-form input[type="email"]:focus,
+  .login-form input[type="password"]:focus {
+    border: 1.5px solid #1e62e6;
+    outline: none;
+  }
+  .login-form .form-check-label {
+    color: #222;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .login-form .auth-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    color: #222;
+    font-size: 1rem;
+  }
+  .login-form .btn-primary {
+    background: #1e62e6;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 0.9rem 0;
+    width: 100%;
+    margin-bottom: 0.7rem;
+    box-shadow: 0 2px 12px rgba(30,58,138,0.10);
+    transition: background 0.2s;
+  }
+  .login-form .btn-primary:hover {
+    background: #2a7cf7;
+  }
+  .login-form .btn-secondary {
+    background: #e3e8fd;
+    color: #1e62e6;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 0.9rem 0;
+    width: 100%;
+    margin-bottom: 0.7rem;
+    box-shadow: 0 2px 12px rgba(30,58,138,0.10);
+    transition: background 0.2s;
+  }
+  .login-form .btn-secondary:hover {
+    background: #d0dbf7;
+  }
+  .login-form .register-link {
+    text-align: center;
+    color: #222;
+    font-size: 1.08rem;
+    margin-top: 1.2rem;
+  }
+  .login-form .register-link a {
+    color: #1e62e6;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 0.3rem;
+  }
+  .login-form .register-link a:hover {
+    color: #2a7cf7;
+    text-decoration: underline;
+  }
+  @media (max-width: 900px) {
+    .login-split-card { flex-direction: column; max-width: 98vw; }
+    .login-left, .login-right { padding: 32px 16px; }
+    .login-divider { display: none; }
+  }
+</style>
+<div class="login-split-card">
+  <div class="login-left">
+    <h2>Welcome to</h2>
+    <div class="site-name">Auction site</div>
+    <div class="desc">The modern platform for secure, fast, and fair product auctions. Join thousands of users and discover a smarter way to trade.</div>
+  </div>
+  <div class="login-divider">
+    <svg width="48" height="100%" viewBox="0 0 48 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:100%; min-height:320px;">
+      <path d="M48 0C32 40 32 80 48 120C32 160 32 200 48 240C32 280 32 320 48 400H0V0H48Z" fill="#fff"/>
+    </svg>
+  </div>
+  <div class="login-right">
+    <div class="login-form-title">Sign In to your account</div>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+      <label for="id_username">Email</label>
+      <input type="email" name="username" id="id_username" required placeholder="Enter your email" autocomplete="username">
+      <label for="id_password">Password</label>
+      <input type="password" name="password" id="id_password" required placeholder="Enter your password" autocomplete="current-password">
+      <div class="auth-links mb-3">
+        <div>
+          <input type="checkbox" id="remember_me" name="remember_me">
+          <label for="remember_me" class="form-check-label">Remember Me</label>
+        </div>
+        <a href="#" style="color:#1e62e6; font-weight:600; text-decoration:none;">Forget Password</a>
+      </div>
+      <button type="submit" class="menu-btn primary">Sign In</button>
+      <button type="button" class="menu-btn" onclick="window.location.href='{% url 'register' %}'">Sign Up</button>
+      <div class="register-link">
+        Don't have an account? <a href="{% url 'register' %}">Register</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %} 

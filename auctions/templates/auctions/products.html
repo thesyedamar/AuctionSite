@@ -1,0 +1,84 @@
+{% extends 'auctions/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Products - Auction Site" %}{% endblock %}
+{% block content %}
+    <h2>{% trans "Products Available" %}</h2>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'product_detail' product.pk %}" style="text-decoration: none; color: inherit;">
+                    <div class="card h-100">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">{% trans "Starting Bid:" %} {{ product.starting_bid }}</p>
+                            <div class="mb-2">
+                                <div class="row" id="countdown-{{ product.pk }}">
+                                    <div class="col-3 text-center">
+                                        <div class="bg-light rounded py-1 small" id="days-{{ product.pk }}">0</div>
+                                        <div class="text-muted" style="font-size: 0.8em;">{% trans "D" %}</div>
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        <div class="bg-light rounded py-1 small" id="hours-{{ product.pk }}">0</div>
+                                        <div class="text-muted" style="font-size: 0.8em;">{% trans "H" %}</div>
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        <div class="bg-light rounded py-1 small" id="minutes-{{ product.pk }}">0</div>
+                                        <div class="text-muted" style="font-size: 0.8em;">{% trans "M" %}</div>
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        <div class="bg-light rounded py-1 small" id="seconds-{{ product.pk }}">0</div>
+                                        <div class="text-muted" style="font-size: 0.8em;">{% trans "S" %}</div>
+                                    </div>
+                                </div>
+                                <div id="ended-{{ product.pk }}" class="text-danger small d-none">{% trans "Auction ended" %}</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <p>{% trans "No products available." %}</p>
+        {% endfor %}
+    </div>
+    <script>
+    // Countdown for all products
+    function getTimeRemaining(endtime) {
+        const t = Date.parse(endtime) - Date.now();
+        const seconds = Math.floor((t / 1000) % 60);
+        const minutes = Math.floor((t / 1000 / 60) % 60);
+        const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return { total: t, days, hours, minutes, seconds };
+    }
+    function initializeClockForProduct(productId, endtime) {
+        const daysSpan = document.getElementById('days-' + productId);
+        const hoursSpan = document.getElementById('hours-' + productId);
+        const minutesSpan = document.getElementById('minutes-' + productId);
+        const secondsSpan = document.getElementById('seconds-' + productId);
+        const endedMsg = document.getElementById('ended-' + productId);
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+            daysSpan.textContent = t.days;
+            hoursSpan.textContent = t.hours;
+            minutesSpan.textContent = t.minutes;
+            secondsSpan.textContent = t.seconds;
+            if (t.total <= 0) {
+                clearInterval(timeinterval);
+                daysSpan.textContent = hoursSpan.textContent = minutesSpan.textContent = secondsSpan.textContent = 0;
+                endedMsg.classList.remove('d-none');
+            }
+        }
+        updateClock();
+        const timeinterval = setInterval(updateClock, 1000);
+    }
+    {% for product in products %}
+        initializeClockForProduct(
+            '{{ product.pk }}',
+            '{{ product.auction_end|date:"Y-m-d\\TH:i:s" }}'
+        );
+    {% endfor %}
+    </script>
+{% endblock %} 

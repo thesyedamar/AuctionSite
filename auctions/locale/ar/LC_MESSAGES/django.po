@@ -1,0 +1,819 @@
+# Cleaned up: removed duplicate msgid entries, keeping only the last occurrence for each msgid.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-18 15:52+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\auctions\forms.py:60 .\auctions\templates\auctions\store_setup.html:116
+#: .\auctions\templates\auctions\vendor_dashboard.html:97
+msgid "Store Name"
+msgstr "اسم المتجر"
+
+#: .\auctions\forms.py:61
+msgid "Store Logo"
+msgstr "شعار المتجر"
+
+#: .\auctions\forms.py:63
+msgid "Enter your store name"
+msgstr "أدخل اسم متجرك"
+
+#: .\auctions\forms.py:64
+msgid "Upload your store logo"
+msgstr "قم برفع شعار متجرك"
+
+#: .\auctions\forms.py:65
+msgid "Describe your store and the items you'll be selling"
+msgstr "صف متجرك والمنتجات التي ستبيعها"
+
+#: .\auctions\forms.py:66
+msgid "Enter your contact email"
+msgstr "أدخل بريدك الإلكتروني للتواصل"
+
+#: .\auctions\forms.py:67
+msgid "Enter your contact number"
+msgstr "أدخل رقم التواصل الخاص بك"
+
+#: .\auctions\forms.py:68
+msgid "Connect your payment account"
+msgstr "اربط حساب الدفع الخاص بك"
+
+# Only unique msgid entries below (last occurrence kept)
+#: .\auctions\templates\auctions\base.html:7
+#: .\auctions\templates\auctions\base.html:17
+msgid "Auction Site"
+msgstr "موقع المزاد"
+
+#: .\auctions\templates\auctions\base.html:24
+#: .\auctions\templates\auctions\base.html:75
+#: .\auctions\templates\auctions\vendor_dashboard.html:117
+msgid "Home"
+msgstr ""
+
+#: .\auctions\templates\auctions\base.html:25
+msgid "Products"
+msgstr "المنتجات"
+
+#: .\auctions\templates\auctions\base.html:28
+#: .\auctions\templates\auctions\base.html:31
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+
+
+#: .\auctions\templates\auctions\base.html:32
+msgid "Become a Vendor"
+msgstr "كن بائعًا"
+
+#: .\auctions\templates\auctions\base.html:35
+#: .\auctions\templates\auctions\base.html:77
+msgid "Need Help?"
+msgstr "هل تحتاج إلى مساعدة؟"
+
+#: .\auctions\templates\auctions\base.html:36
+#: .\auctions\templates\auctions\need_help.html:146
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: .\auctions\templates\auctions\base.html:48
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\auctions\templates\auctions\base.html:51
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+#: .\auctions\templates\auctions\base.html:52
+msgid "Sign Up"
+msgstr "التسجيل"
+
+#: .\auctions\templates\auctions\base.html:69
+msgid "AuctionSite"
+msgstr "موقع المزاد"
+
+#: .\auctions\templates\auctions\base.html:70
+msgid ""
+"The modern platform for secure, fast, and fair product auctions. Join "
+"thousands of users and discover a smarter way to trade."
+msgstr ""
+"المنصة الحديثة للمزادات الآمنة والسريعة والعادلة للمنتجات. انضم إلى آلاف "
+"المستخدمين واكتشف طريقة أذكى للتجارة."
+
+#: .\auctions\templates\auctions\base.html:73
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+#: .\auctions\templates\auctions\base.html:76
+#: .\auctions\templates\auctions\home.html:16
+msgid "Browse Products"
+msgstr "تصفح المنتجات"
+
+#: .\auctions\templates\auctions\base.html:78
+#: .\auctions\templates\auctions\base.html:85
+msgid "Contact"
+msgstr "اتصل بنا"
+
+#: .\auctions\templates\auctions\base.html:79
+msgid "Register"
+msgstr "التسجيل"
+
+#: .\auctions\templates\auctions\base.html:80
+msgid "Terms & Conditions"
+msgstr "الشروط والأحكام"
+
+#: .\auctions\templates\auctions\base.html:81
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\auctions\templates\auctions\base.html:93
+msgid "Follow Us"
+msgstr "تابعنا"
+
+#: .\auctions\templates\auctions\base.html:103
+msgid "AuctionSite. All rights reserved."
+msgstr "موقع المزاد. جميع الحقوق محفوظة."
+
+# Buyer Dashboard
+#: .\auctions\templates\auctions\buyer_dashboard.html:2
+msgid "Buyer Dashboard - Auction Site"
+msgstr "لوحة تحكم المشتري - موقع المزاد"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:4
+msgid "Buyer Dashboard"
+msgstr "لوحة تحكم المشتري"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:8
+msgid "Bids Placed"
+msgstr "العروض المقدمة"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:13
+#: .\auctions\templates\auctions\buyer_dashboard.html:56
+#: .\auctions\templates\auctions\vendor_dashboard.html:177
+msgid "Product"
+msgstr "المنتج"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:14
+#: .\auctions\templates\auctions\buyer_dashboard.html:57
+msgid "Bid Amount"
+msgstr "قيمة العرض"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:15
+#: .\auctions\templates\auctions\buyer_dashboard.html:58
+msgid "Bid Time"
+msgstr "وقت العرض"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:16
+#: .\auctions\templates\auctions\vendor_dashboard.html:178
+msgid "Status"
+msgstr "الحالة"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:28
+msgid "Winning"
+msgstr "فائز"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:30
+msgid "Outbid"
+msgstr "تم تجاوز عرضك"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:34
+msgid "Won"
+msgstr "فزت"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:36
+msgid "Lost"
+msgstr "خسرت"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:45
+msgid "You have not placed any bids yet."
+msgstr "لم تقدم أي عروض بعد."
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:51
+msgid "Won Bids"
+msgstr "العروض الفائزة"
+
+#: .\auctions\templates\auctions\buyer_dashboard.html:72
+msgid "You have not won any bids yet."
+msgstr "لم تفز بأي عروض بعد."
+
+#: .\auctions\templates\auctions\home.html:9
+msgid "Turn Products into auctions."
+msgstr "حول المنتجات إلى مزادات."
+
+#: .\auctions\templates\auctions\home.html:9
+msgid "Sell & buy instantly."
+msgstr "بيع وشراء فوري."
+
+#: .\auctions\templates\auctions\home.html:12
+msgid "The modern platform for secure, fast, and fair Products auctions."
+msgstr "المنصة الحديثة للمزادات الآمنة والسريعة والعادلة للمنتجات."
+
+#: .\auctions\templates\auctions\home.html:13
+msgid "Join thousands of users and discover a smarter way to trade."
+msgstr "انضم إلى آلاف المستخدمين واكتشف طريقة أذكى للتجارة."
+
+#: .\auctions\templates\auctions\home.html:18
+msgid "Get Started"
+msgstr "ابدأ الآن"
+
+#: .\auctions\templates\auctions\home.html:24
+msgid "Most Popular Products"
+msgstr "المنتجات الأكثر شعبية"
+
+#: .\auctions\templates\auctions\home.html:32
+msgid "No Image"
+msgstr "لا توجد صورة"
+
+#: .\auctions\templates\auctions\home.html:36
+#: .\auctions\templates\auctions\vendor_dashboard.html:179
+msgid "Bids"
+msgstr "العروض"
+
+#: .\auctions\templates\auctions\home.html:37
+msgid "View Product"
+msgstr "عرض المنتج"
+
+#: .\auctions\templates\auctions\home.html:38
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+#: .\auctions\templates\auctions\home.html:42
+msgid "No popular products yet."
+msgstr "لا توجد منتجات شائعة بعد."
+
+#: .\auctions\templates\auctions\home.html:50
+msgid "How it works"
+msgstr "كيف يعمل"
+
+#: .\auctions\templates\auctions\home.html:51
+msgid "Buy & sell products in 3 easy steps"
+msgstr "اشترِ وابِع المنتجات في 3 خطوات سهلة"
+
+#: .\auctions\templates\auctions\home.html:52
+msgid "Get started in minutes and enjoy secure, fair, and fast auctions."
+msgstr "ابدأ في دقائق واستمتع بالمزادات الآمنة والعادلة والسريعة."
+
+#: .\auctions\templates\auctions\home.html:59
+msgid "Register & Set Up"
+msgstr "التسجيل والإعداد"
+
+#: .\auctions\templates\auctions\home.html:60
+msgid ""
+"Create your account, set up your profile, and get ready to buy or sell "
+"products in minutes."
+msgstr "أنشئ حسابك، وأعد ملفك الشخصي، واستعد لشراء أو بيع المنتجات في دقائق."
+
+#: .\auctions\templates\auctions\home.html:67
+msgid "List or Bid"
+msgstr "عرض أو مزايدة"
+
+#: .\auctions\templates\auctions\home.html:68
+msgid ""
+"List your Products for auction or place bids on products you want to buy. "
+"Everything is secure and transparent."
+msgstr ""
+"اعرض منتجاتك للمزاد أو قدم عروضك على المنتجات التي تريد شراءها. كل شيء آمن "
+"وشفاف."
+
+#: .\auctions\templates\auctions\home.html:75
+msgid "Win or Sell"
+msgstr "اربح أو ابِع"
+
+#: .\auctions\templates\auctions\home.html:76
+msgid ""
+"Win the auction and get your Products, or sell to the highest bidder and get "
+"paid quickly."
+msgstr ""
+"اربح المزاد واحصل على منتجاتك، أو ابِع لأعلى مزايد واحصل على المال بسرعة."
+
+#: .\auctions\templates\auctions\home.html:88
+msgid "What"
+msgstr "ماذا"
+
+#: .\auctions\templates\auctions\home.html:88
+msgid "Our Users"
+msgstr "مستخدمينا"
+
+#: .\auctions\templates\auctions\home.html:88
+msgid "Say"
+msgstr "يقولون"
+
+#: .\auctions\templates\auctions\home.html:90
+msgid "Hear Directly From"
+msgstr "اسمع مباشرة من"
+
+#: .\auctions\templates\auctions\home.html:90
+msgid "Our Satisfied Members"
+msgstr "أعضاءنا الراضين"
+
+#: .\auctions\templates\auctions\home.html:92
+msgid "Real reviews from real users who love our auction platform."
+msgstr "تقييمات حقيقية من مستخدمين حقيقيين يحبون منصة المزاد لدينا."
+
+#: .\auctions\templates\auctions\home.html:99
+msgid ""
+"Integrating this auction site was a game-changer for me. I sold my products "
+"quickly and the process was seamless!"
+msgstr ""
+"دمج موقع المزاد هذا كان نقطة تحول بالنسبة لي. بعت منتجاتي بسرعة وكانت "
+"العملية سلسة!"
+
+#: .\auctions\templates\auctions\home.html:110
+msgid "Seller & Buyer"
+msgstr "بائع ومشتري"
+
+#: .\auctions\templates\auctions\home.html:105
+msgid "Seller & Buyer"
+msgstr "بائع ومشتري"
+
+#: .\auctions\templates\auctions\home.html:112
+msgid ""
+"I love how easy it is to bid and win products. The site is fast, secure, and "
+"the support team is super helpful!"
+msgstr ""
+"أحب مدى سهولة المزايدة والفوز بالمنتجات. الموقع سريع وآمن وفريق الدعم متعاون "
+"للغاية!"
+
+#: .\auctions\templates\auctions\home.html:118
+msgid "Frequent Bidder"
+msgstr "مزايد متكرر"
+
+#: .\auctions\templates\auctions\home.html:125
+msgid ""
+"Great experience! I found rare products and the auction process was "
+"transparent and fair."
+msgstr "تجربة رائعة! وجدت منتجات نادرة وكانت عملية المزاد شفافة وعادلة."
+
+#: .\auctions\templates\auctions\home.html:131
+msgid "Collector"
+msgstr "جامع مقتنيات"
+
+#: .\auctions\templates\auctions\home.html:140
+msgid "TEST_TRANSLATION"
+msgstr "اختبار الترجمة"
+
+#: .\auctions\templates\auctions\need_help.html:5
+msgid "Need Help? - We're Here for You"
+msgstr "هل تحتاج إلى مساعدة؟ - نحن هنا من أجلك"
+
+#: .\auctions\templates\auctions\need_help.html:12
+msgid "Need Help? – We're Here for You"
+msgstr "هل تحتاج إلى مساعدة؟ – نحن هنا من أجلك"
+
+#: .\auctions\templates\auctions\need_help.html:13
+msgid "Find answers to common questions or get in touch with our support team. We're committed to providing you with the best auction experience."
+msgstr "ابحث عن إجابات للأسئلة الشائعة أو تواصل مع فريق الدعم لدينا. نحن ملتزمون بتقديم أفضل تجربة مزاد لك."
+
+#: .\auctions\templates\auctions\need_help.html:27
+msgid "Account"
+msgstr "الحساب"
+
+#: .\auctions\templates\auctions\need_help.html:30
+msgid "How do I create an account?"
+msgstr "كيف يمكنني إنشاء حساب؟"
+
+#: .\auctions\templates\auctions\need_help.html:31
+msgid "Click the 'Register' button in the top navigation. Fill in your details including email, password, and user type (buyer or vendor). Verify your email to activate your account."
+msgstr "انقر على زر 'تسجيل' في أعلى الصفحة. أدخل بياناتك بما في ذلك البريد الإلكتروني وكلمة المرور ونوع المستخدم (مشتري أو بائع). قم بتفعيل حسابك عبر البريد الإلكتروني."
+
+#: .\auctions\templates\auctions\need_help.html:34
+msgid "How do I become a vendor?"
+msgstr "كيف أصبح بائعًا؟"
+
+#: .\auctions\templates\auctions\need_help.html:35
+msgid "After registering, go to 'Become a Vendor' in your dashboard. Complete the vendor application form with your business details and store information. Once approved, you can start listing products."
+msgstr "بعد التسجيل، انتقل إلى 'كن بائعًا' في لوحة التحكم الخاصة بك. أكمل نموذج طلب البائع بمعلومات عملك ومتجرك. بعد الموافقة، يمكنك البدء في عرض المنتجات."
+
+#: .\auctions\templates\auctions\need_help.html:38
+msgid "Can I change my account type?"
+msgstr "هل يمكنني تغيير نوع حسابي؟"
+
+#: .\auctions\templates\auctions\need_help.html:39
+msgid "Yes, you can upgrade from buyer to vendor at any time. However, vendor accounts require additional verification and approval process."
+msgstr "نعم، يمكنك الترقية من مشتري إلى بائع في أي وقت. ومع ذلك، تتطلب حسابات البائعين تحققًا إضافيًا وعملية موافقة."
+
+#: .\auctions\templates\auctions\need_help.html:48
+msgid "Bidding"
+msgstr "المزايدة"
+
+#: .\auctions\templates\auctions\need_help.html:51
+msgid "How does bidding work?"
+msgstr "كيف تعمل المزايدة؟"
+
+#: .\auctions\templates\auctions\need_help.html:52
+msgid "Browse products and place bids on items you're interested in. Each bid must be higher than the current highest bid. You'll be notified if you're outbid, and you can place a new bid to stay in the auction."
+msgstr "تصفح المنتجات وقدم عروضك على العناصر التي تهمك. يجب أن يكون كل عرض أعلى من العرض الحالي. سيتم إعلامك إذا تم تجاوز عرضك، ويمكنك تقديم عرض جديد للبقاء في المزاد."
+
+#: .\auctions\templates\auctions\need_help.html:55
+msgid "What happens if I win an auction?"
+msgstr "ماذا يحدث إذا فزت في المزاد؟"
+
+#: .\auctions\templates\auctions\need_help.html:56
+msgid "When you win an auction, you'll receive a notification. You can then proceed to payment through our secure payment system. The vendor will ship your item once payment is confirmed."
+msgstr "عند فوزك في المزاد، ستتلقى إشعارًا. يمكنك بعد ذلك متابعة الدفع من خلال نظام الدفع الآمن الخاص بنا. سيقوم البائع بشحن المنتج بعد تأكيد الدفع."
+
+#: .\auctions\templates\auctions\need_help.html:59
+msgid "Can I retract a bid?"
+msgstr "هل يمكنني سحب عرضي؟"
+
+#: .\auctions\templates\auctions\need_help.html:60
+msgid "Bids are generally final. However, you can retract a bid within 1 hour of placing it if you made an error. Contact support immediately if you need to retract a bid."
+msgstr "العروض عادة نهائية. ومع ذلك، يمكنك سحب العرض خلال ساعة واحدة إذا ارتكبت خطأ. تواصل مع الدعم فورًا إذا كنت بحاجة لسحب عرضك."
+
+#: .\auctions\templates\auctions\need_help.html:69
+msgid "Selling"
+msgstr "البيع"
+
+#: .\auctions\templates\auctions\need_help.html:72
+msgid "How do I list a product?"
+msgstr "كيف أعرض منتجًا؟"
+
+#: .\auctions\templates\auctions\need_help.html:73
+msgid "As a vendor, go to your dashboard and click 'Add Product'. Fill in product details, upload images, set starting price and auction duration. Review and publish your listing."
+msgstr "كبائع، انتقل إلى لوحة التحكم وانقر على 'إضافة منتج'. أدخل تفاصيل المنتج، وارفع الصور، وحدد السعر الابتدائي ومدة المزاد. راجع وأرسل إعلانك."
+
+#: .\auctions\templates\auctions\need_help.html:76
+msgid "What fees are involved in selling?"
+msgstr "ما هي الرسوم المتعلقة بالبيع؟"
+
+#: .\auctions\templates\auctions\need_help.html:77
+msgid "We charge a small commission fee on successful sales. The exact percentage depends on your vendor tier. There are no upfront fees to list products."
+msgstr "نحن نفرض عمولة صغيرة على المبيعات الناجحة. النسبة الدقيقة تعتمد على فئة البائع الخاصة بك. لا توجد رسوم مسبقة لعرض المنتجات."
+
+#: .\auctions\templates\auctions\need_help.html:80
+msgid "How do I manage my store?"
+msgstr "كيف أدير متجري؟"
+
+#: .\auctions\templates\auctions\need_help.html:81
+msgid "Access your vendor dashboard to manage products, view sales, track payments, and update your store information. You can edit product details, end auctions early, or relist items."
+msgstr "ادخل إلى لوحة تحكم البائع لإدارة المنتجات، وعرض المبيعات، وتتبع المدفوعات، وتحديث معلومات متجرك. يمكنك تعديل تفاصيل المنتجات، وإنهاء المزادات مبكرًا، أو إعادة عرض العناصر."
+
+#: .\auctions\templates\auctions\need_help.html:90
+msgid "Payments"
+msgstr "المدفوعات"
+
+#: .\auctions\templates\auctions\need_help.html:93
+msgid "What payment methods do you accept?"
+msgstr "ما هي طرق الدفع التي تقبلونها؟"
+
+#: .\auctions\templates\auctions\need_help.html:94
+msgid "We accept major credit cards, debit cards, and digital wallets. All payments are processed securely through our trusted payment partners."
+msgstr "نقبل بطاقات الائتمان الرئيسية، وبطاقات الخصم، والمحافظ الرقمية. تتم معالجة جميع المدفوعات بأمان من خلال شركائنا الموثوقين."
+
+#: .\auctions\templates\auctions\need_help.html:97
+msgid "When do vendors receive payment?"
+msgstr "متى يتلقى البائعون المدفوعات؟"
+
+#: .\auctions\templates\auctions\need_help.html:98
+msgid "Vendors receive payment within 3-5 business days after the buyer confirms receipt of the item. This ensures buyer satisfaction and protects both parties."
+msgstr "يتلقى البائعون المدفوعات خلال 3-5 أيام عمل بعد تأكيد المشتري استلام المنتج. هذا يضمن رضا المشتري ويحمي الطرفين."
+
+#: .\auctions\templates\auctions\need_help.html:101
+msgid "Is my payment information secure?"
+msgstr "هل معلومات الدفع الخاصة بي آمنة؟"
+
+#: .\auctions\templates\auctions\need_help.html:102
+msgid "Yes, we use industry-standard encryption and security measures. We never store your full payment details on our servers. All transactions are processed through secure payment gateways."
+msgstr "نعم، نحن نستخدم تشفيرًا وإجراءات أمان قياسية في الصناعة. لا نقوم أبدًا بتخزين بيانات الدفع الكاملة الخاصة بك على خوادمنا. تتم جميع المعاملات من خلال بوابات دفع آمنة."
+
+#: .\auctions\templates\auctions\need_help.html:115
+msgid "Still Need Help?"
+msgstr "ما زلت بحاجة إلى مساعدة؟"
+
+#: .\auctions\templates\auctions\need_help.html:116
+msgid "Can't find what you're looking for? Our support team is ready to assist you."
+msgstr "لا يمكنك العثور على ما تبحث عنه؟ فريق الدعم لدينا جاهز لمساعدتك."
+
+#: .\auctions\templates\auctions\need_help.html:124
+msgid "Email Support"
+msgstr "الدعم عبر البريد الإلكتروني"
+
+#: .\auctions\templates\auctions\need_help.html:126
+msgid "Response within 24 hours"
+msgstr "الرد خلال 24 ساعة"
+
+#: .\auctions\templates\auctions\need_help.html:134
+msgid "Phone Support"
+msgstr "الدعم عبر الهاتف"
+
+#: .\auctions\templates\auctions\need_help.html:136
+msgid "Mon-Fri, 9AM-6PM EST"
+msgstr "من الاثنين إلى الجمعة، 9 صباحًا - 6 مساءً بتوقيت شرق الولايات المتحدة"
+
+#: .\auctions\templates\auctions\need_help.html:144
+msgid "Contact Form"
+msgstr "نموذج التواصل"
+
+#: .\auctions\templates\auctions\need_help.html:145
+msgid "Send us a detailed message"
+msgstr "أرسل لنا رسالة مفصلة"
+
+# Store Setup Page
+#: .\auctions\templates\auctions\products.html:3
+#, fuzzy
+#| msgid "Store Setup - Auction Site"
+msgid "Products - Auction Site"
+msgstr "إعداد المتجر - موقع المزاد"
+
+#: .\auctions\templates\auctions\products.html:5
+#, fuzzy
+#| msgid "No products available."
+msgid "Products Available"
+msgstr "لا توجد منتجات متاحة."
+
+#: .\auctions\templates\auctions\products.html:16
+msgid "Starting Bid:"
+msgstr ""
+
+#: .\auctions\templates\auctions\products.html:21
+msgid "D"
+msgstr ""
+
+#: .\auctions\templates\auctions\products.html:25
+msgid "H"
+msgstr ""
+
+#: .\auctions\templates\auctions\products.html:29
+msgid "M"
+msgstr ""
+
+#: .\auctions\templates\auctions\products.html:33
+msgid "S"
+msgstr ""
+
+# Only unique msgid entries below (last occurrence kept)
+#: .\auctions\templates\auctions\products.html:36
+#, fuzzy
+#| msgid "Auction Site"
+msgid "Auction ended"
+msgstr "موقع المزاد"
+
+#: .\auctions\templates\auctions\products.html:43
+msgid "No products available."
+msgstr "لا توجد منتجات متاحة."
+
+# Store Setup Page
+#: .\auctions\templates\auctions\store_setup.html:3
+msgid "Store Setup - Auction Site"
+msgstr "إعداد المتجر - موقع المزاد"
+
+#: .\auctions\templates\auctions\store_setup.html:108
+msgid "Step 1: Store Setup"
+msgstr "الخطوة 1: إعداد المتجر"
+
+#: .\auctions\templates\auctions\store_setup.html:112
+msgid "Store Setup"
+msgstr "إعداد المتجر"
+
+#: .\auctions\templates\auctions\store_setup.html:113
+msgid ""
+"Configure your store settings to start selling. Complete your store profile "
+"to attract more buyers and build trust."
+msgstr ""
+"قم بتكوين إعدادات متجرك لبدء البيع. أكمل ملف متجرك لجذب المزيد من المشترين "
+"وبناء الثقة."
+
+#: .\auctions\templates\auctions\store_setup.html:120
+msgid "Store Description"
+msgstr "وصف المتجر"
+
+#: .\auctions\templates\auctions\store_setup.html:122
+msgid "Contact Email"
+msgstr "البريد الإلكتروني للتواصل"
+
+#: .\auctions\templates\auctions\store_setup.html:124
+msgid "Contact Number (Optional)"
+msgstr "رقم التواصل (اختياري)"
+
+#: .\auctions\templates\auctions\store_setup.html:126
+msgid "Payment Settings"
+msgstr "إعدادات الدفع"
+
+#: .\auctions\templates\auctions\store_setup.html:128
+msgid "Save Settings"
+msgstr "حفظ الإعدادات"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:91
+msgid "Vendor Dashboard"
+msgstr "لوحة تحكم البائع"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:99
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:115
+msgid "Edit Store"
+msgstr "تعديل المتجر"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:118
+msgid "Explore"
+msgstr "استكشاف"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:119
+msgid "Create"
+msgstr "إنشاء"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:120
+msgid "My Bids"
+msgstr "عروضي"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:121
+msgid "My Payments"
+msgstr "مدفوعاتي"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:127
+msgid "Add Product"
+msgstr "إضافة منتج"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:132
+msgid "Total Products"
+msgstr "إجمالي المنتجات"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:138
+msgid "Sold Products"
+msgstr "المنتجات المباعة"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:144
+msgid "Running Products"
+msgstr "المنتجات الجارية"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:150
+msgid "Pending Products"
+msgstr "المنتجات المعلقة"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:157
+msgid "Sales & Bids Overview"
+msgstr "نظرة عامة على المبيعات والعروض"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:161
+msgid "Total Sales"
+msgstr "إجمالي المبيعات"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:167
+msgid "Active Bids"
+msgstr "العروض النشطة"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:172
+msgid "Product Listings"
+msgstr "قوائم المنتجات"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:180
+msgid "Actions"
+msgstr "الإجراءات"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:189
+msgid "Active"
+msgstr "نشط"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:191
+msgid "Inactive"
+msgstr "غير نشط"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:196
+msgid "Edit"
+msgstr "تعديل"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:197
+msgid "Delete"
+msgstr "حذف"
+
+#: .\auctions\templates\auctions\vendor_dashboard.html:201
+msgid "No products listed yet."
+msgstr "لا توجد منتجات مدرجة بعد."
+
+# Vendor Dashboard
+#: .\auctions\views.py:191
+msgid "Vendor Dashboard - Auction Site"
+msgstr "لوحة تحكم البائع - موقع المزاد"
+
+#: .\auctions\templates\auctions\contact_us.html:3
+msgid "Contact Us - Auction Site"
+msgstr "اتصل بنا - موقع المزاد"
+
+#: .\auctions\templates\auctions\contact_us.html:11
+msgid "Get in touch"
+msgstr "تواصل معنا"
+
+#: .\auctions\templates\auctions\contact_us.html:12
+msgid "We'd love to hear from you. Our friendly team is always here to help."
+msgstr "يسعدنا التواصل معك. فريقنا الودود دائمًا هنا لمساعدتك."
+
+#: .\auctions\templates\auctions\contact_us.html:15
+msgid "Chat to us"
+msgstr "تحدث إلينا"
+
+#: .\auctions\templates\auctions\contact_us.html:15
+msgid "Our friendly team is here to help."
+msgstr "فريقنا الودود هنا لمساعدتك."
+
+#: .\auctions\templates\auctions\contact_us.html:16
+msgid "Phone"
+msgstr "الهاتف"
+
+#: .\auctions\templates\auctions\contact_us.html:16
+msgid "Mon-Fri from 8am to 5pm."
+msgstr "من الاثنين إلى الجمعة من 8 صباحًا حتى 5 مساءً."
+
+#: .\auctions\templates\auctions\contact_us.html:25
+msgid "Contact Us Now"
+msgstr "اتصل بنا الآن"
+
+#: .\auctions\templates\auctions\contact_us.html:26
+msgid "You can reach us anytime via <a href=\"mailto:support@auctionsite.com\" style=\"color: var(--primary);\">support@auctionsite.com</a>"
+msgstr "يمكنك التواصل معنا في أي وقت عبر <a href=\"mailto:support@auctionsite.com\" style=\"color: var(--primary);\">support@auctionsite.com</a>"
+
+#: .\auctions\templates\auctions\contact_us.html:29
+msgid "Name"
+msgstr "الاسم"
+
+#: .\auctions\templates\auctions\contact_us.html:30
+msgid "Your name"
+msgstr "اسمك"
+
+#: .\auctions\templates\auctions\contact_us.html:33
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\auctions\templates\auctions\contact_us.html:34
+msgid "you@company.com"
+msgstr "you@company.com"
+
+#: .\auctions\templates\auctions\contact_us.html:37
+msgid "Phone number"
+msgstr "رقم الهاتف"
+
+#: .\auctions\templates\auctions\contact_us.html:38
+msgid "+1 234 567 890"
+msgstr "+1 234 567 890"
+
+#: .\auctions\templates\auctions\contact_us.html:41
+msgid "How can we help?"
+msgstr "كيف يمكننا مساعدتك؟"
+
+#: .\auctions\templates\auctions\contact_us.html:42
+msgid "Tell us a little about the Probelm..."
+msgstr "أخبرنا قليلاً عن المشكلة..."
+
+#: .\auctions\templates\auctions\contact_us.html:46
+msgid "Get started"
+msgstr "ابدأ الآن"
+#: auctions/templates/auctions/list_product.html:15
+msgid "List a New Product"
+msgstr "أضف منتج جديد"
+
+#: auctions/templates/auctions/list_product.html:21
+msgid "Product Title:"
+msgstr "عنوان المنتج:"
+
+#: auctions/templates/auctions/list_product.html:26
+msgid "Category:"
+msgstr "الفئة:"
+
+#: auctions/templates/auctions/list_product.html:32
+msgid "Starting Bid ($):"
+msgstr "سعر البداية ($):"
+
+#: auctions/templates/auctions/list_product.html:37
+msgid "Condition:"
+msgstr "الحالة:"
+
+#: auctions/templates/auctions/list_product.html:43
+msgid "Description:"
+msgstr "الوصف:"
+
+#: auctions/templates/auctions/list_product.html:48
+msgid "Product Images:"
+msgstr "صور المنتج:"
+
+#: auctions/templates/auctions/list_product.html:51
+msgid "Drag and drop your images here, or"
+msgstr "اسحب وأفلت صورك هنا، أو"
+
+#: auctions/templates/auctions/list_product.html:53
+msgid "Choose Files"
+msgstr "اختر الملفات"
+
+#: auctions/templates/auctions/list_product.html:55
+msgid "Upload up to 5 images (Max 5MB each)"
+msgstr "يمكنك رفع حتى 5 صور (5 ميجابايت كحد أقصى لكل صورة)"
+
+#: auctions/templates/auctions/list_product.html:61
+msgid "Auction End Date:"
+msgstr "تاريخ انتهاء المزاد:"
+
+#: auctions/templates/auctions/list_product.html:66
+msgid "Auction End Time:"
+msgstr "وقت انتهاء المزاد:"
+
+#: auctions/templates/auctions/list_product.html:71
+msgid "List Product"
+msgstr "أدرج المنتج"
+

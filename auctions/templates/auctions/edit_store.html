@@ -1,0 +1,43 @@
+{% extends 'auctions/base.html' %}
+{% block title %}Edit Store - Auction Site{% endblock %}
+{% block content %}
+<div class="container" style="max-width: 700px;">
+    <h2 class="mt-5 mb-2" style="font-weight: 600;">Edit Store</h2>
+    <p class="mb-4 text-muted">Manage your store details and settings</p>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" class="mb-3">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_store_name" class="form-label">Store Name</label>
+            {{ form.store_name }}
+        </div>
+        <div class="mb-3">
+            <label for="id_store_description" class="form-label">Store Description</label>
+            {{ form.store_description }}
+        </div>
+        <div class="mb-3">
+            <label for="id_store_email" class="form-label">Contact Email</label>
+            {{ form.store_email }}
+        </div>
+        <div class="mb-3">
+            <label for="id_store_phone" class="form-label">Phone Number</label>
+            {{ form.store_phone }}
+        </div>
+        <div class="mb-3">
+            {{ form.store_logo.label_tag }}
+            {{ form.store_logo }}
+        </div>
+        <div class="mb-3">
+            <label for="id_payment_settings" class="form-label">Payment Settings</label>
+            {{ form.payment_settings }}
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+        </div>
+    </form>
+</div>
+{% endblock %} 

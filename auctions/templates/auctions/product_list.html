@@ -1,0 +1,56 @@
+{% extends 'auctions/base.html' %}
+{% block title %}Products - Auction Site{% endblock %}
+{% block content %}
+<h2 class="fw-bold text-primary mb-4" style="font-size:2.2rem;">Products Available for Auction</h2>
+<div class="row g-4">
+    {% for product in products %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+        <div class="glass-card fade-in flex-fill d-flex flex-column" style="border-radius: 20px; box-shadow: 0 4px 24px rgba(30,58,138,0.10);">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" style="border-radius: 20px 20px 0 0; height: 180px; object-fit: cover;" alt="{{ product.title }}">
+            {% else %}
+                <div style="height:180px; background:var(--bg-light); border-radius:20px 20px 0 0; display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:2rem;">No Image</div>
+            {% endif %}
+            <div class="p-3 d-flex flex-column flex-grow-1">
+                <div class="fw-bold text-accent mb-1" style="font-size: 1.1rem;">{{ product.title }}</div>
+                <div class="fw-bold text-primary mb-1" style="font-size: 1.1rem;">${{ product.starting_bid }}</div>
+                <div class="text-muted mb-2" style="font-size: 0.98rem; min-height: 40px;">{{ product.description|truncatechars:60 }}</div>
+                <div class="mb-2" style="color: #F4C95D; font-weight: 600;">Bids: {{ product.bids.count }}</div>
+                <div class="mb-2">
+                    <span class="countdown-timer" data-end="{{ product.auction_end|date:'Y-m-d\TH:i:s' }}"></span>
+                </div>
+                <a href="{% url 'product_detail' product.pk %}" class="menu-btn primary mt-auto text-center" style="width: 100%; display: block;">View Product</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No products available.</p>
+    {% endfor %}
+</div>
+<script>
+// Countdown timer for each product
+function getTimeRemaining(endtime) {
+    const t = Date.parse(endtime) - Date.now();
+    const seconds = Math.floor((t / 1000) % 60);
+    const minutes = Math.floor((t / 1000 / 60) % 60);
+    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return { total: t, days, hours, minutes, seconds };
+}
+function updateCountdowns() {
+    document.querySelectorAll('.countdown-timer').forEach(function(el) {
+        const end = el.getAttribute('data-end');
+        if (!end) return;
+        const t = getTimeRemaining(end);
+        if (t.total <= 0) {
+            el.textContent = 'Auction ended';
+            el.classList.add('text-danger');
+        } else {
+            el.textContent = `${t.days}d ${t.hours}h ${t.minutes}m ${t.seconds}s left`;
+        }
+    });
+}
+setInterval(updateCountdowns, 1000);
+document.addEventListener('DOMContentLoaded', updateCountdowns);
+</script>
+{% endblock %} 

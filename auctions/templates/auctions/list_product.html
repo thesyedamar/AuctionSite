@@ -1,0 +1,85 @@
+{% extends 'auctions/base.html' %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block title %}List A Product - Auction Site{% endblock %}
+{% block content %}
+<style>
+  .card.modern {
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 8px 32px 0 rgba(30, 58, 138, 0.18);
+    border-radius: 24px;
+    border: 1.5px solid rgba(255,255,255,0.22);
+  }
+</style>
+<div class="container mt-4" style="max-width: 700px;">
+    <div class="card p-4 modern" style="background: var(--bg-light); box-shadow: 0 8px 32px 0 rgba(30, 58, 138, 0.18); border-radius: 24px; border: 1.5px solid var(--primary);">
+        <h2 class="mb-4 fw-bold" style="color: var(--primary);">{% trans "List a New Product" %}</h2>
+        <form method="post" enctype="multipart/form-data" class="mb-3">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3">
+                    <label for="id_title" class="form-label" style="color: var(--accent);">{% trans "Product Title:" %}</label>
+                    {{ form.title|add_class:'form-control' }}
+                    {{ form.title.errors }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="id_category" class="form-label" style="color: var(--accent);">{% trans "Category:" %}</label>
+                    {{ form.category|add_class:'form-select' }}
+                    {{ form.category.errors }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3">
+                    <label for="id_starting_bid" class="form-label" style="color: var(--accent);">{% trans "Starting Bid ($):" %}</label>
+                    {{ form.starting_bid|add_class:'form-control' }}
+                    {{ form.starting_bid.errors }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="id_condition" class="form-label" style="color: var(--accent);">{% trans "Condition:" %}</label>
+                    {{ form.condition|add_class:'form-select' }}
+                    {{ form.condition.errors }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="id_description" class="form-label" style="color: var(--accent);">{% trans "Description:" %}</label>
+                {{ form.description|add_class:'form-control' }}
+                {{ form.description.errors }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label" style="color: var(--accent);">{% trans "Product Images:" %}</label>
+                <div class="border rounded p-4 text-center" style="background: #fafbfc; border: 2px dashed var(--primary);">
+                    <span class="d-block mb-2" style="font-size: 2rem; color: #bdbdbd;">
+                        <i class="bi bi-image"></i>
+                    </span>
+                    <span class="d-block mb-2">{% trans "Drag and drop your images here, or" %}</span>
+                    <label class="btn mb-2" style="background: var(--primary); color: #fff;">
+                        {% trans "Choose Files" %}
+                        {{ form.image|add_class:'d-none' }}
+                    </label>
+                    <div class="small text-muted">{% trans "Upload up to 5 images (Max 5MB each)" %}</div>
+                </div>
+                {{ form.image.errors }}
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4 mb-3">
+                    <label for="id_auction_end_date" class="form-label" style="color: var(--accent);">{% trans "Auction End Date:" %}</label>
+                    {{ form.auction_end_date|add_class:'form-control' }}
+                    {{ form.auction_end_date.errors }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="id_auction_end_time" class="form-label" style="color: var(--accent);">{% trans "Auction End Time:" %}</label>
+                    {{ form.auction_end_time|add_class:'form-control' }}
+                    {{ form.auction_end_time.errors }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="id_auction_end_ampm" class="form-label" style="color: var(--accent);">{% trans "AM/PM:" %}</label>
+                    {{ form.auction_end_ampm|add_class:'form-select' }}
+                    {{ form.auction_end_ampm.errors }}
+                </div>
+            </div>
+            <button type="submit" class="btn" style="background: var(--primary); color: #fff;">{% trans "List Product" %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

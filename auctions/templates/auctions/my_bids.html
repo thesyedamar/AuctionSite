@@ -1,0 +1,51 @@
+{% extends 'auctions/base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>My Bids</h2>
+    <a href="{% url 'vendor_dashboard' %}" class="btn btn-secondary mb-3">&larr; Back to Dashboard</a>
+    <div class="card">
+        <div class="card-body">
+            {% if bids %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Bid Amount</th>
+                        <th>Bid Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bid in bids %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'product_detail' bid.product.pk %}">{{ bid.product.name }}</a>
+                        </td>
+                        <td>${{ bid.bid_amount }}</td>
+                        <td>{{ bid.bid_time|date:'Y-m-d H:i' }}</td>
+                        <td>
+                            {% if bid.product.is_active %}
+                                {% if bid.product.bids.first.bidder == bid.bidder %}
+                                    <span class="badge bg-success">Winning</span>
+                                {% else %}
+                                    <span class="badge bg-warning">Outbid</span>
+                                {% endif %}
+                            {% else %}
+                                {% if bid.product.bids.first.bidder == bid.bidder %}
+                                    <span class="badge bg-primary">Won</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Lost</span>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No bids found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

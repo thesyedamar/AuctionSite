@@ -1,0 +1,131 @@
+{% extends 'auctions/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Store Setup - Auction Site" %}{% endblock %}
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(135deg, #e3e8fd 0%, #f8fafd 100%);
+    min-height: 100vh;
+  }
+  .store-setup-card {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(30, 58, 138, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1.5px solid rgba(255,255,255,0.22);
+    max-width: 520px;
+    margin: 60px auto 40px auto;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    color: var(--accent);
+    position: relative;
+  }
+  .store-setup-card .step-indicator {
+    position: absolute;
+    top: -32px;
+    left: 32px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 18px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 2px 12px rgba(30,58,138,0.10);
+    letter-spacing: 1px;
+  }
+  .store-setup-card .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+  .store-setup-card .icon svg {
+    width: 48px;
+    height: 48px;
+    color: var(--primary);
+    filter: drop-shadow(0 2px 8px rgba(30,58,138,0.10));
+  }
+  .store-setup-card h2 {
+    font-family: 'Poppins', 'Inter', Arial, sans-serif;
+    font-size: 2.1rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    letter-spacing: 1px;
+  }
+  .store-setup-card .desc {
+    text-align: center;
+    color: #4b5563;
+    font-size: 1.08rem;
+    margin-bottom: 2.2rem;
+    opacity: 0.92;
+  }
+  .store-setup-card label {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .store-setup-card input[type="text"],
+  .store-setup-card input[type="email"],
+  .store-setup-card input[type="file"],
+  .store-setup-card textarea,
+  .store-setup-card select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    border: 1.5px solid #e3e8fd;
+    margin-bottom: 1.2rem;
+    background: #f8fafd;
+    color: var(--accent);
+    font-size: 1.08rem;
+    transition: border 0.2s;
+  }
+  .store-setup-card input:focus,
+  .store-setup-card textarea:focus,
+  .store-setup-card select:focus {
+    border: 1.5px solid var(--primary);
+    outline: none;
+  }
+  .store-setup-card .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 0.9rem 0;
+    width: 100%;
+    margin-top: 0.7rem;
+    box-shadow: 0 2px 12px rgba(30,58,138,0.10);
+    transition: background 0.2s;
+  }
+  .store-setup-card .btn-primary:hover {
+    background: var(--accent);
+  }
+</style>
+<div class="store-setup-card fade-in">
+  <div class="step-indicator">{% trans "Step 1: Store Setup" %}</div>
+  <div class="icon">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7V6a2 2 0 012-2h14a2 2 0 012 2v1M3 7l1.553 9.32A2 2 0 006.53 18h10.94a2 2 0 001.978-1.68L21 7M3 7h18"/></svg>
+  </div>
+  <h2>{% trans "Store Setup" %}</h2>
+  <div class="desc">{% trans "Configure your store settings to start selling. Complete your store profile to attract more buyers and build trust." %}</div>
+  <form method="post" enctype="multipart/form-data" class="mb-3">
+    {% csrf_token %}
+    <label for="id_store_name">{% trans "Store Name" %}</label>
+    {{ form.store_name }}
+    {{ form.store_logo.label_tag }}
+    {{ form.store_logo }}
+    <label for="id_store_description">{% trans "Store Description" %}</label>
+    {{ form.store_description }}
+    <label for="id_store_email">{% trans "Contact Email" %}</label>
+    {{ form.store_email }}
+    <label for="id_store_phone">{% trans "Contact Number (Optional)" %}</label>
+    {{ form.store_phone }}
+    <label for="id_payment_settings">{% trans "Payment Settings" %}</label>
+    {{ form.payment_settings }}
+    <button type="submit" class="btn btn-primary">{% trans "Save Settings" %}</button>
+  </form>
+</div>
+{% endblock %} 

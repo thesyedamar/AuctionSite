@@ -1,0 +1,54 @@
+{% extends 'auctions/base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Contact Us - Auction Site" %}{% endblock %}
+{% block content %}
+<div class="container-fluid py-5" style="background: #f3f4fa; min-height: 90vh;">
+  <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-lg-10">
+      <div class="row shadow rounded-4 overflow-hidden" style="background: #fff;">
+        <!-- Left: Contact Info -->
+        <div class="col-md-5 d-flex flex-column justify-content-between p-5" style="background: var(--primary); color: #fff; min-height: 500px;">
+          <div>
+            <h3 class="fw-bold mb-4">{% trans "Get in touch" %}</h3>
+            <p class="mb-4" style="color: #e0e7ff;">{% trans "We'd love to hear from you. Our friendly team is always here to help." %}</p>
+            <div class="mb-4">
+              <div class="mb-3"><span class="fw-bold"><i class="bi bi-envelope me-2"></i>{% trans "Chat to us" %}</span><br><span style="color: #c7d2fe;">{% trans "Our friendly team is here to help." %}</span><br><a href="mailto:support@auctionsite.com" class="text-light">support@auctionsite.com</a></div>
+              <div><span class="fw-bold"><i class="bi bi-telephone me-2"></i>{% trans "Phone" %}</span><br><span style="color: #c7d2fe;">{% trans "Mon-Fri from 8am to 5pm." %}</span><br>+1 234 567 890</div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="#" class="me-3 text-light fs-5"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="me-3 text-light fs-5"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="me-3 text-light fs-5"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="me-3 text-light fs-5"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <!-- Right: Contact Form -->
+        <div class="col-md-7 p-5 bg-white">
+          <h2 class="fw-bold mb-2" style="color: var(--primary);">{% trans "Contact Us Now" %}</h2>
+          <p class="mb-4" style="color: var(--accent);">{% blocktrans %}You can reach us anytime via <a href="mailto:support@auctionsite.com" style="color: var(--primary);">support@auctionsite.com</a>{% endblocktrans %}</p>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">{% trans "Name" %}</label>
+              <input type="text" class="form-control" placeholder="{% trans 'Your name' %}">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">{% trans "Email" %}</label>
+              <input type="email" class="form-control" placeholder="{% trans 'you@company.com' %}">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">{% trans "Phone number" %}</label>
+              <input type="tel" class="form-control" placeholder="{% trans '+1 234 567 890' %}">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">{% trans "How can we help?" %}</label>
+              <textarea class="form-control" rows="3" placeholder="{% trans 'Tell us a little about the Probelm...' %}"></textarea>
+            </div>
+            <button type="submit" class="btn w-100" style="background: var(--primary); color: #fff; font-weight: 600;">{% trans "Get started" %}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 

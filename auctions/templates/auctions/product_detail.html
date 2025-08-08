@@ -1,0 +1,141 @@
+{% extends 'auctions/base.html' %}
+{% load static %}
+{% block title %}{{ product.title }} - Auction Site{% endblock %}
+{% block content %}
+<div class="container" style="max-width: 900px;">
+    <nav class="mb-3" aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0">
+            <li class="breadcrumb-item"><a href="{% url 'products' %}?category={{ product.category }}">{{ product.get_category_display }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+        </ol>
+    </nav>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0" style="font-weight: 600;">{{ product.title }}</h2>
+        <div class="d-flex align-items-center gap-3">
+            <form class="d-flex" method="get" action="/products/">
+                <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" style="min-width: 200px;">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </form>
+            <span class="position-relative">
+                <i class="bi bi-bell" style="font-size: 1.5rem;"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+            </span>
+            <img src="{% if user.profile.store_logo %}{{ user.profile.store_logo.url }}{% else %}{% static 'default-avatar.png' %}{% endif %}" class="rounded-circle" width="40" height="40" alt="Profile">
+        </div>
+    </div>
+    {% if product.image %}
+        <img src="{{ product.image.url }}" class="img-fluid rounded mb-4" style="max-height: 400px; object-fit: contain; background: #f5e6df;" alt="{{ product.title }}">
+    {% endif %}
+    <div class="row mb-4" id="countdown-timer">
+        <div class="col-3 text-center">
+            <div class="bg-light rounded py-2 mb-1 h4" id="days">0</div>
+            <div class="text-muted">Days</div>
+        </div>
+        <div class="col-3 text-center">
+            <div class="bg-light rounded py-2 mb-1 h4" id="hours">0</div>
+            <div class="text-muted">Hours</div>
+        </div>
+        <div class="col-3 text-center">
+            <div class="bg-light rounded py-2 mb-1 h4" id="minutes">0</div>
+            <div class="text-muted">Minutes</div>
+        </div>
+        <div class="col-3 text-center">
+            <div class="bg-light rounded py-2 mb-1 h4" id="seconds">0</div>
+            <div class="text-muted">Seconds</div>
+        </div>
+    </div>
+    <div id="auction-ended-message" class="alert alert-info d-none">Auction ended. {% if bids %}Winner: {{ bids.first.bidder.username }}{% else %}No bids placed.{% endif %}</div>
+    <div class="mb-3">
+        <div class="h5">Current Bid</div>
+        <div class="display-6 mb-3">${{ current_bid }}</div>
+        {% if user.is_authenticated %}
+            <form method="post" class="d-flex mb-3" style="max-width: 400px;">
+                {% csrf_token %}
+                {{ bid_form.bid_amount }}
+                <button type="submit" class="btn btn-primary">Place Bid</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary mb-3">Login to Place Bid</a>
+        {% endif %}
+    </div>
+    <div class="mb-4">
+        <h5>Bid History</h5>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Bidder</th>
+                    <th>Amount</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bid in bids %}
+                <tr>
+                    <td>{{ bid.bidder.username }}</td>
+                    <td>${{ bid.bid_amount }}</td>
+                    <td>{{ bid.bid_time|timesince }} ago</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3">No bids yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="mb-4">
+        <h5>Product Description</h5>
+        <p>{{ product.description }}</p>
+    </div>
+    <div class="mb-4">
+        <h5>Seller Information</h5>
+        <div class="d-flex align-items-center">
+            {% if seller_profile and seller_profile.store_logo %}
+                <img src="{{ seller_profile.store_logo.url }}" class="rounded-circle me-3" width="48" height="48" alt="Seller Logo">
+            {% else %}
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="48" height="48" alt="Seller">
+            {% endif %}
+            <div>
+                <div class="fw-bold">{{ product.seller.username }}</div>
+                <div class="text-muted">Joined {{ product.seller.date_joined|date:"Y" }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-4">
+        <h5>Shipping Details</h5>
+        <p>Ships within 2 business days. Shipping costs will be calculated at checkout based on your location. International shipping available.</p>
+    </div>
+</div>
+<script>
+// Live countdown timer to auction_end
+function getTimeRemaining(endtime) {
+    const t = Date.parse(endtime) - Date.now();
+    const seconds = Math.floor((t / 1000) % 60);
+    const minutes = Math.floor((t / 1000 / 60) % 60);
+    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return { total: t, days, hours, minutes, seconds };
+}
+function initializeClock(endtime) {
+    const daysSpan = document.getElementById('days');
+    const hoursSpan = document.getElementById('hours');
+    const minutesSpan = document.getElementById('minutes');
+    const secondsSpan = document.getElementById('seconds');
+    const endedMsg = document.getElementById('auction-ended-message');
+    function updateClock() {
+        const t = getTimeRemaining(endtime);
+        daysSpan.textContent = t.days;
+        hoursSpan.textContent = t.hours;
+        minutesSpan.textContent = t.minutes;
+        secondsSpan.textContent = t.seconds;
+        if (t.total <= 0) {
+            clearInterval(timeinterval);
+            document.getElementById('countdown-timer').classList.add('d-none');
+            endedMsg.classList.remove('d-none');
+        }
+    }
+    updateClock();
+    const timeinterval = setInterval(updateClock, 1000);
+}
+// Pass auction_end from Django to JS
+initializeClock("{{ product.auction_end|date:'Y-m-d\TH:i:s' }}");
+</script>
+{% endblock %} 

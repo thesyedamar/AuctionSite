@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Switcher Test</title>
+</head>
+<body>
+    <h1>Language Switcher Standalone Test</h1>
+    <form action="{% url 'custom_language_switch' %}" method="post" id="language-form">
+        <input name="next" type="hidden" value="/" />
+        <select name="language">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+        </select>
+        <button type="submit">Switch</button>
+    </form>
+    <script>
+        document.getElementById('language-form').addEventListener('submit', function(e) {
+            console.log('Form submitting to:', this.action);
+            console.log('Form method:', this.method);
+            console.log('Form data:', new FormData(this));
+        });
+    </script>
+</body>
+</html> 

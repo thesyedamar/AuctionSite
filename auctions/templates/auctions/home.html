@@ -1,0 +1,112 @@
+{% extends 'auctions/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}Home - Auction Site{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      {% trans "Turn Products into Auctions" %}<br>{% trans "Sell & buy instantly" %}
+    </h1>
+    <p class="hero-subtitle">
+      {% trans "The modern platform for secure, fast, and fair Products auctions." %}<br>
+      {% trans "Join thousands of users and discover a smarter way to trade." %}
+    </p>
+    {% if user.is_authenticated %}
+      <a href="{% url 'products' %}" class="hero-btn">{% trans "Browse Products" %}</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="hero-btn">{% trans "Get Started" %}</a>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Most Featured Product Section -->
+<section class="products-section">
+  <h2 class="section-title">{% trans "Most Featured Product" %}</h2>
+  <div class="products-grid">
+    {% for product in popular_products %}
+    <div class="product-card">
+      {% if product.image %}
+      <img src="{{ product.image.url }}" class="product-image" alt="{{ product.title }}">
+      {% else %}
+      <div class="no-image">{% trans "No Image" %}</div>
+      {% endif %}
+      <div class="product-content">
+        <h3 class="product-title">{{ product.title }}</h3>
+        <div class="product-bids">{% trans "Bids" %}: <span class="bid-count">{{ product.num_bids }}</span></div>
+        <a href="{% url 'product_detail' product.pk %}" class="product-btn">{% trans "View Product" %}</a>
+      </div>
+    </div>
+    {% empty %}
+    <div class="no-products">{% trans "No popular products yet." %}</div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works-section">
+  <div class="section-header">
+    <h3 class="section-subtitle">{% trans "How it works" %}</h3>
+    <h2 class="section-title">{% trans "Buy & sell products in 3 easy steps" %}</h2>
+    <p class="section-description">{% trans "Get started in minutes and enjoy secure, fair, and fast auctions." %}</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">01</div>
+      <div class="step-icon">👤</div>
+      <h4 class="step-title">{% trans "Register & Set Up" %}</h4>
+      <p class="step-description">{% trans "Create your account, set up your profile, and get ready to buy or sell products in minutes." %}</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">02</div>
+      <div class="step-icon">🎫</div>
+      <h4 class="step-title">{% trans "List or Bid" %}</h4>
+      <p class="step-description">{% trans "List your Products for auction or place bids on products you want to buy. Everything is secure and transparent." %}</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">03</div>
+      <div class="step-icon">🏆</div>
+      <h4 class="step-title">{% trans "Win or Sell" %}</h4>
+      <p class="step-description">{% trans "Win the auction and get your Products, or sell to the highest bidder and get paid quickly." %}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <h2 class="section-title">{% trans "What" %} <span class="highlight">{% trans "Our Users" %}</span> {% trans "Say" %}</h2>
+    <h3 class="section-subtitle">{% trans "Hear Directly From" %} <span class="highlight">{% trans "Our Satisfied Members" %}</span></h3>
+    <p class="section-description">{% trans "Real reviews from real users who love our auction platform." %}</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="quote">&#10077;</div>
+      <p class="testimonial-text">{% trans "Integrating this auction site was a game-changer for me. I sold my products quickly and the process was seamless!" %}</p>
+      <div class="testimonial-author">
+        <img src="https://randomuser.me/api/portraits/men/65.jpg" class="author-image" alt="Ali Raza">
+        <div class="author-info">
+          <div class="author-name">Ali Raza</div>
+          <div class="author-role">{% trans "Seller & Buyer" %}</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="quote">&#10077;</div>
+      <p class="testimonial-text">{% trans "I love how easy it is to bid and win products. The site is fast, secure, and the support team is super helpful!" %}</p>
+      <div class="testimonial-author">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="author-image" alt="Sara Khan">
+        <div class="author-info">
+          <div class="author-name">Sara Khan</div>
+          <div class="author-role">{% trans "Frequent Bidder" %}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="test-translation">
+  {% trans "TEST_TRANSLATION" %}
+</div>
+{% endblock %} 

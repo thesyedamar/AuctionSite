@@ -1,0 +1,48 @@
+{% extends 'auctions/base.html' %}
+{% block title %}List a New Product - Auction Site{% endblock %}
+{% block content %}
+    <h2>List a New Product for Auction</h2>
+    <form method="post" enctype="multipart/form-data" class="mb-3">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_title">Product Title:</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            <label for="id_category">Category:</label>
+            {{ form.category }}
+        </div>
+        <div class="form-group">
+            <label for="id_starting_bid">Starting Bid ($):</label>
+            {{ form.starting_bid }}
+        </div>
+        <div class="form-group">
+            <label for="id_condition">Condition:</label>
+            {{ form.condition }}
+        </div>
+        <div class="form-group">
+            <label for="id_description">Description:</label>
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            <label for="id_image">Product Images:</label>
+            {{ form.image }}
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="id_auction_end_date">Auction End Date:</label>
+                {{ form.auction_end_date }}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="id_auction_end_time">Auction End Time:</label>
+                {{ form.auction_end_time }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="id_auction_end_ampm">AM/PM:</label>
+                {{ form.auction_end_ampm }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">List Product</button>
+    </form>
+    <a href="{% url 'products' %}" class="btn btn-link">Back to Product List</a>
+{% endblock %} 

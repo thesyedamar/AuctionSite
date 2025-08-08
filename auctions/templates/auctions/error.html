@@ -1,0 +1,48 @@
+{% extends 'auctions/base.html' %}
+{% block title %}{{ error_title|default:'Error' }} - Auction Site{% endblock %}
+{% block content %}
+<style>
+  .error-card {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(30, 58, 138, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1.5px solid rgba(255,255,255,0.22);
+    max-width: 480px;
+    margin: 80px auto 40px auto;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    color: var(--accent);
+    text-align: center;
+  }
+  .error-card h2 {
+    font-family: 'Poppins', 'Inter', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 1.2rem;
+  }
+  .error-card .desc {
+    color: #4b5563;
+    font-size: 1.13rem;
+    margin-bottom: 2.2rem;
+    opacity: 0.92;
+  }
+  .error-card a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 1.2rem;
+    display: inline-block;
+  }
+  .error-card a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+</style>
+<div class="error-card fade-in">
+  <h2>{{ error_title|default:'Error' }}</h2>
+  <div class="desc">{{ error_message|default:'An error occurred.' }}</div>
+  <a href="{% url 'home' %}">&larr; Back to Home</a>
+</div>
+{% endblock %} 

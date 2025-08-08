@@ -1,0 +1,18 @@
+{
+    "mcpServers": {
+      "supabase": {
+        "command": "cmd",
+        "args": [
+          "/c",
+          "npx",
+          "-y",
+          "@supabase/mcp-server-supabase@latest",
+          "--read-only",
+          "--project-ref=Real-Auction-App"
+        ],
+        "env": {
+          "SUPABASE_ACCESS_TOKEN": "sbp_d0d8e32737ff3412db2f59cb373aee8cc565c0c8"
+        }
+      }
+    }
+  }
